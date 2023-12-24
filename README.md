@@ -17,8 +17,8 @@ This Java application, using the Spring framework, helps manage a career portal.
 ****Registration:** Users fill out a form with their information.
 Saving Data:** Details are saved in a database, including the candidate's resume.
 **Duplicate Check:** Ensures no two candidates share the same email address.
-****Admin View**: Admins can see a list of all registered candidates.
-Resume Download:** Anyone can download a candidate's resume using the candidate's ID.
+**Admin View:** Admins can see a list of all registered candidates.
+**Resume Download:** Anyone can download a candidate's resume using the candidate's ID.
 
 
 **Technology Used:**
