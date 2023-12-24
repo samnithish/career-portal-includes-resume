@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Company's Name</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f4f4f4;
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		form {
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			border-radius: 8px;
+			width: 300px;
+			text-align: center;
+		}
+
+		h3 {
+			color: #333;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			text-align: left;
+		}
+
+		input {
+			width: 100%;
+			padding: 8px;
+			margin-top: 4px;
+			margin-bottom: 12px;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		input[type="file"] {
+			margin-top: 8px;
+			margin-bottom: 12px;
+		}
+
+		button {
+			background-color: #4caf50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		a {
+			margin-top: 20px;
+			text-decoration: none;
+		}
+
+		a button {
+			background-color: #3498db;
+		}
+
+		a button:hover {
+			background-color: #2980b9;
+		}
+	</style>
+</head>
+
+<body>
+	<form th:action="@{/save}" enctype="multipart/form-data" method="post" th:object="${candidate}">
+		<h3>Candidate's Form</h3>
+		<label>Name : <input type="text" name="candidateName" th:field="${candidate.candidateName}"
+				required /></label><br>
+		<label>Email : <input type="text" name="candidateEmail" th:field="${candidate.candidateEmail}"
+				required /></label><br>
+		<label>Position : <input type="text" name="position" th:field="${candidate.position}" required /></label><br>
+		<label>Resume : <input accept=".pdf, .doc, .docx" type="file" name="resume" th:field="${candidate.resume}"
+				required /></label><br>
+		<button type="submit">Submit</button><br><br><br>
+	</form>
+
+	<a th:href="@{/allcandidates}"><button>View All Candidates</button></a>
+</body>
+
+</html>

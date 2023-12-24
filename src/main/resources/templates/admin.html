@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Company's Name</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f4f4f4;
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		h2 {
+			color: #333;
+		}
+
+		h3 {
+			color: #555;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 12px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+
+		tr:hover {
+			background-color: #f5f5f5;
+		}
+
+		button {
+			padding: 10px;
+			background-color: #4caf50;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		body>div {
+			margin: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h2>HR DashBoard</h2>
+		<h3>Candidate Details</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email Id</th>
+					<th>Position</th>
+					<th>Resume</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aCand:${AllCand}">
+					<td th:text="${aCand.candidateName}"></td>
+					<td th:text="${aCand.candidateEmail}"></td>
+					<td th:text="${aCand.position}"></td>
+					<td><a th:href="@{'/downloadresume/' + ${aCand.candidateId}}"><button>Download Resume</button></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+		<br>
+
+		<a href="/"><button>Candidate Form</button></a>
+	</div>
+</body>
+
+</html>
